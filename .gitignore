@@ -1,0 +1,29 @@
+# IDE & Tools
+.arts/
+.codeartsdoer/
+.merkle-snapshot.json
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# OS files
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment & secrets
+.env
+.env.local
+*.key
+GitHubAccessToken.txt
+
+# Screenshots (temporary)
+*.png.bak

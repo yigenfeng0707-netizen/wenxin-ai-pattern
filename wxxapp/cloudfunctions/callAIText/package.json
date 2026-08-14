@@ -1,0 +1,9 @@
+{
+  "name": "callAIText",
+  "version": "1.0.0",
+  "description": "AI文本处理云函数 - 风格描述优化",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -1,0 +1,66 @@
+<view class="ar-page">
+  <!-- 离屏合成 canvas，不可见但需参与渲染 -->
+  <canvas type="2d" id="composeCanvas" class="compose-canvas"></canvas>
+
+  <!-- 取景区 -->
+  <view id="cameraArea" class="camera-area">
+    <camera
+      wx:if="{{cameraAuthorized && !permissionDenied}}"
+      class="camera"
+      device-position="back"
+      flash="off"
+      frame-size="medium"
+      binderror="onCameraError"
+    >
+      <!-- 纹样叠加层 -->
+      <cover-image
+        class="pattern-overlay"
+        src="{{pattern}}"
+        style="left:{{patternLeft}}px;top:{{patternTop}}px;width:{{patternSize}}px;height:{{patternSize}}px;opacity:{{patternOpacity}};"
+      ></cover-image>
+      <!-- 触摸层（透明，覆盖整个取景区，接收拖动与缩放手势） -->
+      <cover-view
+        class="touch-layer"
+        bindtouchstart="onTouchStart"
+        bindtouchmove="onTouchMove"
+        bindtouchend="onTouchEnd"
+        bindtouchcancel="onTouchEnd"
+      ></cover-view>
+      <!-- 顶部栏 -->
+      <cover-view class="top-bar" style="padding-top:{{statusBarHeight}}px;">
+        <cover-view class="back-btn" bindtap="onBack">‹ 返回</cover-view>
+        <cover-view class="title">AR 纹样预览</cover-view>
+      </cover-view>
+    </camera>
+
+    <!-- 相机权限被拒降级页 -->
+    <view wx:if="{{permissionDenied}}" class="permission-state">
+      <view class="permission-icon">📷</view>
+      <view class="permission-text">相机权限被拒绝</view>
+      <view class="permission-desc">请在设置中开启相机权限，以使用 AR 预览功能</view>
+      <button class="btn-secondary" bindtap="onGoToSetting">去设置</button>
+      <button class="btn-secondary permission-back" bindtap="onBack">返回</button>
+    </view>
+  </view>
+
+  <!-- 底部控制栏 -->
+  <view wx:if="{{cameraAuthorized && !permissionDenied}}" class="bottom-bar safe-bottom">
+    <view class="opacity-row">
+      <text class="opacity-label">透明度</text>
+      <slider
+        class="opacity-slider"
+        min="20"
+        max="100"
+        value="{{patternOpacity * 100}}"
+        step="5"
+        bindchange="onOpacityChange"
+        block-size="18"
+        activeColor="#1B3A5C"
+        backgroundColor="#E0DCD3"
+      />
+    </view>
+    <button class="btn-primary capture-btn" bindtap="onCapture" loading="{{capturing}}" disabled="{{capturing}}">
+      {{capturing ? '截图中...' : '截图保存'}}
+    </button>
+  </view>
+</view>

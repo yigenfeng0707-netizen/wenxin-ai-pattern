@@ -1,0 +1,124 @@
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 48rpx 0 32rpx;
+}
+
+.avatar-wrap {
+  margin-right: 32rpx;
+}
+
+.avatar, .avatar-default {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+
+.avatar-btn {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  line-height: 1;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.avatar-btn::after {
+  border: none;
+}
+
+.avatar-default {
+  background: linear-gradient(135deg, #1B3A5C 0%, #2C5F7C 100%);
+  color: #FFFFFF;
+  font-size: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.nickname {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #1B3A5C;
+}
+
+.nickname-input {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #1B3A5C;
+  border-bottom: 2rpx solid #1B3A5C;
+  padding-bottom: 4rpx;
+  width: 320rpx;
+}
+
+.profile-desc {
+  font-size: 26rpx;
+  color: #A0522D;
+  margin-top: 8rpx;
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 32rpx 0;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(27, 58, 92, 0.08);
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 44rpx;
+  font-weight: 600;
+  color: #1B3A5C;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #888888;
+  margin-top: 8rpx;
+}
+
+.menu-list {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 16rpx rgba(27, 58, 92, 0.08);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.04);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-text {
+  font-size: 30rpx;
+  color: #2C2C2C;
+}
+
+.menu-arrow {
+  color: #CCCCCC;
+  font-size: 32rpx;
+}
+
+.ai-disclaimer {
+  margin-top: 48rpx;
+  font-size: 22rpx;
+  color: #AAAAAA;
+  text-align: center;
+  line-height: 2;
+  white-space: pre-line;
+}

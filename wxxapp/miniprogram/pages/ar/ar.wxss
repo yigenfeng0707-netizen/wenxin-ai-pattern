@@ -1,0 +1,149 @@
+.ar-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #000000;
+}
+
+/* 离屏合成 canvas：定位到屏幕外，不可见但需参与渲染 */
+.compose-canvas {
+  position: fixed;
+  left: -9999px;
+  top: -9999px;
+  width: 100px;
+  height: 100px;
+}
+
+.camera-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.camera {
+  width: 100%;
+  height: 100%;
+}
+
+/* 纹样叠加层：绝对定位，位置/尺寸由 js 控制 */
+.pattern-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+/* 透明触摸层，覆盖整个取景区 */
+.touch-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* 顶部栏：深色半透明，叠加在相机之上 */
+.top-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: rgba(27, 58, 92, 0.5);
+  z-index: 3;
+}
+
+.back-btn {
+  position: absolute;
+  left: 24rpx;
+  bottom: 0;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #FFFFFF;
+  font-size: 32rpx;
+  padding: 0 16rpx;
+}
+
+.title {
+  color: #FFFFFF;
+  font-size: 32rpx;
+  font-weight: 500;
+  line-height: 88rpx;
+}
+
+/* 权限拒绝降级页 */
+.permission-state {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #F5F2ED;
+  padding: 0 64rpx;
+}
+
+.permission-icon {
+  font-size: 96rpx;
+  margin-bottom: 32rpx;
+}
+
+.permission-text {
+  font-size: 34rpx;
+  color: #1B3A5C;
+  font-weight: 500;
+  margin-bottom: 16rpx;
+}
+
+.permission-desc {
+  font-size: 26rpx;
+  color: #888888;
+  text-align: center;
+  margin-bottom: 48rpx;
+  line-height: 1.6;
+}
+
+.permission-back {
+  margin-top: 24rpx;
+}
+
+/* 底部控制栏 */
+.bottom-bar {
+  background: rgba(27, 58, 92, 0.85);
+  padding: 20rpx 32rpx 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.opacity-row {
+  display: flex;
+  align-items: center;
+}
+
+.opacity-label {
+  color: #FFFFFF;
+  font-size: 26rpx;
+  width: 100rpx;
+  flex-shrink: 0;
+}
+
+.opacity-slider {
+  flex: 1;
+  margin: 0 16rpx;
+}
+
+.capture-btn {
+  width: 100%;
+  display: block;
+  border-radius: 48rpx;
+}

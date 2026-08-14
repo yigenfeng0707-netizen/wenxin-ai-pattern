@@ -1,0 +1,63 @@
+<view class="container">
+  <view class="hero">
+    <view class="hero-title">纹心</view>
+    <view class="hero-subtitle">AI非遗纹样创作</view>
+    <view class="hero-desc">用自然语言描述意境，AI生成扎染风格纹样</view>
+  </view>
+
+  <view class="section">
+    <view class="title-md">选择纹样风格</view>
+    <view class="style-grid">
+      <view
+        wx:for="{{styleTemplates}}"
+        wx:key="id"
+        class="style-card {{currentStyleId === item.id ? 'active' : ''}}"
+        bindtap="onSelectStyle"
+        data-id="{{item.id}}"
+      >
+        <view class="style-card-inner" style="position: relative;">
+          <view style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: {{item.gradient}};"></view>
+          <image wx:if="{{item.previewImage}}" src="{{item.previewImage}}" mode="aspectFill" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" />
+          <view class="style-name" style="position: relative; z-index: 1;">{{item.name}}</view>
+        </view>
+        <view class="style-label">{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="title-md">描述你的意境</view>
+    <view class="input-wrap">
+      <textarea
+        class="desc-input"
+        placeholder="例如：山间晨雾、溪水潺潺、古道夕阳..."
+        placeholderClass="placeholder"
+        maxlength="100"
+        value="{{descValue}}"
+        bindinput="onDescInput"
+        autoHeight
+      />
+      <view class="input-count">{{descValue.length}}/100</view>
+    </view>
+    <view class="quick-tags">
+      <view
+        wx:for="{{quickTags}}"
+        wx:key="*this"
+        class="quick-tag"
+        bindtap="onQuickTag"
+        data-tag="{{item}}"
+      >{{item}}</view>
+    </view>
+  </view>
+
+  <view class="generate-bar safe-bottom">
+    <button
+      class="btn-primary generate-btn"
+      bindtap="onGenerate"
+      disabled="{{!canGenerate || generating}}"
+      loading="{{generating}}"
+    >{{generating ? 'AI创作中...' : '开始AI创作'}}</button>
+  </view>
+
+  <view class="ai-disclaimer">本作品由AI辅助创作，所有纹样均为AI生成</view>
+</view>

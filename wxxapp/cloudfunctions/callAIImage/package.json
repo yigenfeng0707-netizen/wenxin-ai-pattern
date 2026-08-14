@@ -1,0 +1,10 @@
+{
+  "name": "callAIImage",
+  "version": "1.0.0",
+  "description": "AI纹样生成云函数 - 调用混元Image 3.0文生图",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3",
+    "jimp": "^0.22.10"
+  }
+}

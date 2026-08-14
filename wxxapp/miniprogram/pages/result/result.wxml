@@ -1,0 +1,67 @@
+<view class="container">
+  <!-- 用于给生成图打 AI 水印的离屏 canvas，不可见但需参与渲染 -->
+  <canvas type="2d" id="watermarkCanvas" class="watermark-canvas"></canvas>
+  <!-- 用于生成分享配图的离屏 canvas -->
+  <canvas type="2d" id="shareCanvas" class="watermark-canvas"></canvas>
+
+  <view wx:if="{{generating}}" class="generating-state">
+    <view class="loading-dots">
+      <view class="dot"></view>
+      <view class="dot"></view>
+      <view class="dot"></view>
+    </view>
+    <view class="loading-text">AI正在创作{{styleName}}纹样...</view>
+    <view class="loading-desc">正在将"{{desc}}"融入非遗扎染意境</view>
+  </view>
+
+  <view wx:elif="{{generateError}}" class="error-state">
+    <view class="error-icon">!</view>
+    <view class="error-text">创作失败，请重试</view>
+    <view class="error-desc">{{generateError}}</view>
+    <button class="btn-secondary" bindtap="onRetry">重新创作</button>
+  </view>
+
+  <view wx:else class="result-state">
+    <view class="result-image-wrap">
+      <image class="result-image" src="{{resultImage}}" mode="aspectFit" />
+      <view class="ai-watermark">AI生成</view>
+    </view>
+
+    <view class="result-info card">
+      <view class="info-row">
+        <text class="info-label">风格</text>
+        <text class="info-value text-indigo">{{styleName}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">意境</text>
+        <text class="info-value">{{desc}}</text>
+      </view>
+      <view class="ai-tag">AI辅助创作</view>
+    </view>
+
+    <view class="section">
+      <view class="title-md">效果预览</view>
+      <scroll-view class="product-scroll" scrollX>
+        <view
+          wx:for="{{productTypes}}"
+          wx:key="id"
+          class="product-item {{currentProduct === item.id ? 'active' : ''}}"
+          bindtap="onSelectProduct"
+          data-id="{{item.id}}"
+        >{{item.name}}</view>
+      </scroll-view>
+      <view class="preview-wrap">
+        <canvas type="2d" id="previewCanvas" class="preview-canvas"></canvas>
+      </view>
+    </view>
+
+    <view class="action-bar safe-bottom">
+      <button class="btn-secondary action-btn" bindtap="onSave">{{saved ? '已保存' : '保存作品'}}</button>
+      <button class="btn-secondary action-btn" bindtap="onSaveToAlbum">存相册</button>
+      <button class="btn-secondary action-btn" bindtap="onARPreview">AR预览</button>
+      <button class="btn-primary action-btn" openType="share">分享</button>
+    </view>
+  </view>
+
+  <view class="ai-disclaimer">本作品由AI辅助创作，所有纹样均为AI生成</view>
+</view>

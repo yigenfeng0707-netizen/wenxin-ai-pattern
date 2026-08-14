@@ -1,0 +1,72 @@
+<view class="container">
+  <view class="profile-header">
+    <view class="avatar-wrap">
+      <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+        <image wx:if="{{userInfo.avatarUrl}}" class="avatar" src="{{userInfo.avatarUrl}}" />
+        <view wx:else class="avatar-default">纹</view>
+      </button>
+    </view>
+    <view class="profile-info">
+      <input
+        wx:if="{{editingNick}}"
+        class="nickname-input"
+        type="nickname"
+        value="{{userInfo.nickName}}"
+        placeholder="点击设置昵称"
+        bindblur="onNickNameBlur"
+        bindconfirm="onNickNameBlur"
+        focus="{{editingNick}}"
+      />
+      <view wx:else class="nickname" bindtap="onEditNick">{{userInfo.nickName || '点击设置昵称'}}</view>
+      <view class="profile-desc">AI非遗纹样共创者</view>
+    </view>
+  </view>
+
+  <view class="stats-row">
+    <view class="stat-item">
+      <view class="stat-num">{{stats.workCount}}</view>
+      <view class="stat-label">作品</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-num">{{stats.shareCount}}</view>
+      <view class="stat-label">分享</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-num">{{stats.likeCount}}</view>
+      <view class="stat-label">获赞</view>
+    </view>
+  </view>
+
+  <view class="menu-list">
+    <view class="menu-item" bindtap="onMenuTap" data-action="about">
+      <view class="menu-text">关于纹心</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="onMenuTap" data-action="guide">
+      <view class="menu-text">使用指南</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="onMenuTap" data-action="heritage">
+      <view class="menu-text">非遗扎染文化</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="onMenuTap" data-action="agreement">
+      <view class="menu-text">用户协议与AI说明</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="onMenuTap" data-action="feedback">
+      <view class="menu-text">意见反馈</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="onMenuTap" data-action="clearCache">
+      <view class="menu-text">清除缓存</view>
+      <view class="menu-arrow">></view>
+    </view>
+  </view>
+
+  <view class="ai-disclaimer">
+    本小程序所有纹样均由AI辅助创作\n
+    扎染纹样风格基于白族非遗技艺\n
+    2026微信小程序开发大赛参赛作品
+  </view>
+</view>

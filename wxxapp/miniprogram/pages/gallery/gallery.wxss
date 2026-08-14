@@ -1,0 +1,112 @@
+.page-header {
+  padding: 32rpx 0 24rpx;
+}
+
+.loading-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.empty-icon {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: rgba(27, 58, 92, 0.06);
+  color: #1B3A5C;
+  font-size: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-text {
+  margin-top: 32rpx;
+  font-size: 32rpx;
+  color: #2C2C2C;
+}
+
+.empty-desc {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+  color: #AAAAAA;
+  margin-bottom: 40rpx;
+}
+
+.works-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24rpx;
+  padding-bottom: 32rpx;
+}
+
+.work-card {
+  width: calc((100% - 24rpx) / 2);
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4rpx 16rpx rgba(27, 58, 92, 0.08);
+}
+
+.work-image {
+  width: 100%;
+  height: 300rpx;
+}
+
+.work-info {
+  padding: 20rpx;
+}
+
+.work-style {
+  font-size: 26rpx;
+  color: #1B3A5C;
+  font-weight: 500;
+}
+
+.work-desc {
+  font-size: 24rpx;
+  color: #666666;
+  margin-top: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.work-time {
+  font-size: 22rpx;
+  color: #AAAAAA;
+  margin-top: 8rpx;
+}
+
+.work-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8rpx;
+}
+
+.work-likes {
+  font-size: 22rpx;
+  color: #A0522D;
+}
+
+.ai-tag-small {
+  position: absolute;
+  right: 12rpx;
+  top: 12rpx;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}

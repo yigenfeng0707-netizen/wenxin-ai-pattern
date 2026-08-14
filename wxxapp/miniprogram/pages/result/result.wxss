@@ -1,0 +1,163 @@
+/* 水印离屏 canvas：定位到屏幕外，不可见但需参与渲染 */
+.watermark-canvas {
+  position: fixed;
+  left: -9999rpx;
+  top: -9999rpx;
+  width: 768rpx;
+  height: 768rpx;
+}
+
+.generating-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.loading-text {
+  margin-top: 40rpx;
+  font-size: 32rpx;
+  color: #1B3A5C;
+  font-weight: 500;
+}
+
+.loading-desc {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  color: #888888;
+  text-align: center;
+  padding: 0 64rpx;
+}
+
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.error-icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: rgba(160, 82, 45, 0.1);
+  color: #A0522D;
+  font-size: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.error-text {
+  margin-top: 32rpx;
+  font-size: 32rpx;
+  color: #2C2C2C;
+}
+
+.error-desc {
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: #AAAAAA;
+  padding: 0 64rpx;
+  text-align: center;
+}
+
+.result-image-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 16rpx;
+  overflow: hidden;
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 16rpx rgba(27, 58, 92, 0.1);
+}
+
+.result-image {
+  width: 100%;
+  height: 500rpx;
+}
+
+.ai-watermark {
+  position: absolute;
+  right: 16rpx;
+  bottom: 16rpx;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  font-size: 20rpx;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.result-info {
+  margin-top: 24rpx;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.info-label {
+  width: 100rpx;
+  color: #888888;
+  font-size: 26rpx;
+}
+
+.info-value {
+  flex: 1;
+  color: #2C2C2C;
+  font-size: 26rpx;
+}
+
+.product-scroll {
+  white-space: nowrap;
+  margin: 24rpx 0;
+}
+
+.product-item {
+  display: inline-block;
+  padding: 16rpx 32rpx;
+  margin-right: 16rpx;
+  background: #FFFFFF;
+  border-radius: 32rpx;
+  font-size: 26rpx;
+  color: #666666;
+  border: 2rpx solid transparent;
+}
+
+.product-item.active {
+  color: #1B3A5C;
+  border-color: #1B3A5C;
+  font-weight: 500;
+}
+
+.preview-wrap {
+  width: 100%;
+  border-radius: 16rpx;
+  overflow: hidden;
+  background: #F0EDE8;
+}
+
+.preview-canvas {
+  width: 686rpx;
+  height: 400rpx;
+}
+
+.action-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 24rpx;
+  padding: 24rpx 32rpx;
+  background: linear-gradient(to top, #F5F2ED 80%, transparent);
+  z-index: 100;
+}
+
+.action-btn {
+  flex: 1;
+  display: block;
+}

@@ -1,0 +1,44 @@
+<view class="container">
+  <view class="page-header">
+    <view class="title-lg">我的作品集</view>
+    <view class="text-desc">AI创作的纹样作品收藏</view>
+  </view>
+
+  <view wx:if="{{loading}}" class="loading-state">
+    <view class="loading-dots">
+      <view class="dot"></view>
+      <view class="dot"></view>
+      <view class="dot"></view>
+    </view>
+  </view>
+
+  <view wx:elif="{{works.length === 0}}" class="empty-state">
+    <view class="empty-icon">空</view>
+    <view class="empty-text">还没有作品</view>
+    <view class="empty-desc">去创作你的第一个AI非遗纹样吧</view>
+    <button class="btn-primary" bindtap="goCreate">开始创作</button>
+  </view>
+
+  <view wx:else class="works-grid">
+    <view
+      wx:for="{{works}}"
+      wx:key="_id"
+      class="work-card"
+      bindtap="onWorkTap"
+      bindlongpress="onWorkLongPress"
+      data-id="{{item._id}}"
+      data-index="{{index}}"
+    >
+      <image class="work-image" src="{{item.imageUrl}}" mode="aspectFill" />
+      <view class="work-info">
+        <view class="work-style">{{item.styleName}}</view>
+        <view class="work-desc">{{item.desc}}</view>
+        <view class="work-meta">
+          <view class="work-time">{{item.timeText}}</view>
+          <view class="work-likes">♥ {{item.likeCount || 0}}</view>
+        </view>
+      </view>
+      <view class="ai-tag-small">AI</view>
+    </view>
+  </view>
+</view>
